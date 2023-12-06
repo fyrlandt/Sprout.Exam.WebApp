@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sprout.Exam.WebApp\Sprout.Exam.WebApp.csproj" />
+  </ItemGroup>
+
 </Project>

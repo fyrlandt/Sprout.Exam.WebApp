@@ -19,7 +19,7 @@ namespace Sprout.Exam.WebApp.Models
 
         public override decimal ComputeSalary()
         {
-            return dailySalary * DaysWorked;
+            return Math.Round(dailySalary * DaysWorked, 2);
         }
     }
 }

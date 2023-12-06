@@ -20,6 +20,7 @@ namespace Sprout.Exam.WebApp.Models
         public override decimal ComputeSalary()
         {
             decimal netSalary = (monthlySalary - (DaysAbsent * (monthlySalary / 22)) - (monthlySalary * 0.12M));
+            netSalary = Math.Round(netSalary, 2);
             return netSalary > 0 ? netSalary : 0;
         }
     }

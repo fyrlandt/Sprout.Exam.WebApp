@@ -98,7 +98,7 @@ export class EmployeeCalculate extends Component {
 
     async calculateSalary() {
     //regexp for positive decimal
-    var regexp = /^\d+(\.\d{1,2})?$/;
+    var regexp = /^\d+(\.\d+)?$/;
     if (!regexp.test(this.state.absentDays) || !regexp.test(this.state.workedDays))
         return alert("Absent days or worked days must be a number.");
 
