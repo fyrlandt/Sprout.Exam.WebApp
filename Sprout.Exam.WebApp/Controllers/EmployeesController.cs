@@ -143,7 +143,7 @@ namespace Sprout.Exam.WebApp.Controllers
                     ((ContractualEmployee)employee).DaysWorked = input.WorkedDays;
                     break;
             }
-            return Ok(employee.computeSalary());
+            return Ok(employee.ComputeSalary());
 
             //return type switch
             //{

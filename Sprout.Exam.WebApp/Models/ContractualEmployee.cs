@@ -17,7 +17,7 @@ namespace Sprout.Exam.WebApp.Models
             EmployeeTypeId = (int)EmployeeType.Contractual;
         }
 
-        public override decimal computeSalary()
+        public override decimal ComputeSalary()
         {
             return dailySalary * DaysWorked;
         }

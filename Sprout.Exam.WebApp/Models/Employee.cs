@@ -11,6 +11,6 @@ namespace Sprout.Exam.WebApp.Models
         public DateTime Birthdate { get; set; }
         public bool IsDeleted { get; set; }
 
-        public abstract decimal computeSalary();
+        public abstract decimal ComputeSalary();
     }
 }

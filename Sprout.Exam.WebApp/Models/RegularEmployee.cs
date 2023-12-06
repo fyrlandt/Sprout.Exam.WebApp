@@ -17,7 +17,7 @@ namespace Sprout.Exam.WebApp.Models
             EmployeeTypeId = (int)EmployeeType.Regular;
         }
 
-        public override decimal computeSalary()
+        public override decimal ComputeSalary()
         {
             decimal netSalary = (monthlySalary - (DaysAbsent * (monthlySalary / 22)) - (monthlySalary * 0.12M));
             return netSalary > 0 ? netSalary : 0;
