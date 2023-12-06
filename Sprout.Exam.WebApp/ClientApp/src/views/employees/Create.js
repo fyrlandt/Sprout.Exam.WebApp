@@ -86,7 +86,8 @@ export class EmployeeCreate extends Component {
         alert("Employee successfully saved");
         this.props.history.push("/employees/index");
     }
-    else{
+    else {
+        this.setState({ loadingSave: false });
         alert("There was an error occured.");
     }
   }

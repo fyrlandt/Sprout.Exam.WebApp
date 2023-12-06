@@ -14,6 +14,9 @@ using IdentityServer4.Models;
 using Sprout.Exam.WebApp.Factories;
 using System.Collections;
 using System.Globalization;
+using IdentityServer4.Extensions;
+using System.Text.RegularExpressions;
+using Sprout.Exam.WebApp.Utils;
 
 namespace Sprout.Exam.WebApp.Controllers
 {
@@ -65,6 +68,9 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(EditEmployeeDto input)
         {
+            if (!ValidationUtil.IsInputValid(input))
+                return BadRequest();
+
             Employee employee = await Task.FromResult(_context.Employees.Find(input.Id));
             if (employee == null)
                 return NotFound();
@@ -85,6 +91,9 @@ namespace Sprout.Exam.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateEmployeeDto input)
         {
+            if(!ValidationUtil.IsInputValid(input))
+                return BadRequest();
+            
             Employee employee = await Task.FromResult(employeeFactory.GetEmployee(input.TypeId));
             employee.FullName = input.FullName;
             employee.Tin = input.Tin;
@@ -144,18 +153,6 @@ namespace Sprout.Exam.WebApp.Controllers
                     break;
             }
             return Ok(employee.ComputeSalary());
-
-            //return type switch
-            //{
-            //    EmployeeType.Regular =>
-                    //create computation for regular.
-            //        Ok(25000),
-            //    EmployeeType.Contractual =>
-                    //create computation for contractual.
-           //         Ok(20000),
-            //    _ => NotFound("Employee Type not found")
-            //};
-
         }
 
     }
